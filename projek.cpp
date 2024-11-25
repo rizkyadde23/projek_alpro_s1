@@ -103,6 +103,11 @@ void login(){
     cout<<"LOGIN BERHASIL...\n";
     system("pause");
     logedin = true;
+    } else {
+    cout<<"Username Atau Password Salah....\n";
+    cout<<"Silahkan Coba Lagi!\n";
+    system("pause");
+    logedin = false;
     }
     } 
     //checking pengguna
