@@ -8,6 +8,7 @@ string namepemilik[100];
 string pwpemilik[100];
 string namepengguna[100];
 string pwpengguna[100];
+bool logedin;
 
 
 void signin(){
@@ -58,7 +59,7 @@ void signin(){
     } while (yakin=="n" || yakin =="N");
     }
     //Role Pemesan Kos
-    if(role=="2"){
+    else if(role=="2"){
     do{
     system("cls");
     registemp++;
@@ -66,11 +67,11 @@ void signin(){
     cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
     cout<<"|"<<setfill(' ')<<setw(32)<<"CREATE ACCOUNT"<<setw(20)<<"|\n";
     cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
-    cout<<"Masukkan Username Baru : ";getline(cin>>ws,namepemilik[pengguna]);
-    cout<<"Masukkan Password Baru : ";getline(cin>>ws, pwpemilik[pengguna]);
+    cout<<"Masukkan Username Baru : ";getline(cin>>ws,namepengguna[pengguna]);
+    cout<<"Masukkan Password Baru : ";getline(cin>>ws, pwpengguna[pengguna]);
     do{
     cout<<"Apakah Anda Sudah Yakin Dengan Username dan Password Anda? (y/n) : ";getline(cin>>ws,yakin);
-    if (yakin != "y" &&yakin != "Y" && yakin != "n" && yakin != "N"){
+    if (yakin != "y" && yakin != "Y" && yakin != "n" && yakin != "N"){
     cout<<"INPUT YANG ANDA MASUKKAN SALAH...\n";
     cout<<"SILAHKAN INPUT Y/N\n";
     system("pause");
@@ -79,7 +80,7 @@ void signin(){
     if (yakin == "y" || yakin == "Y"){
     cout<<"AKUN BERHASIL DIBUAT....\n";
     cout<<"SILAHKAN LOGIN!\n";
-    pemilik += registemp;
+    pengguna += registemp;
     system("pause");
     }
     }
@@ -87,7 +88,41 @@ void signin(){
     }
     }
 
+void login(){
+    string username,password;
+    do{
+    system("cls");
+    cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
+    cout<<"|"<<setfill(' ')<<setw(28)<<"LOGIN"<<setw(24)<<"|\n";
+    cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
+    cout<<"Masukkan Username : ";getline(cin>>ws,username);
+    cout<<"Masukkan Password : ";getline(cin>>ws,password);
+    //checking pemilik
+    for (int i = 0; i < pemilik; i++){
+    if (namepemilik[i] == username && pwpemilik[i] == password ){
+    cout<<"LOGIN BERHASIL...\n";
+    system("pause");
+    logedin = true;
+    }
+    } 
+    //checking pengguna
+    for (int i = 0; i < pengguna; i++){
+    if (namepengguna[i] == username && pwpengguna[i] == password ){
+    cout<<"LOGIN BERHASIL...\n";
+    system("pause");
+    logedin = true;
+    } else {
+    cout<<"Username Atau Password Salah....\n";
+    cout<<"Silahkan Coba Lagi!\n";
+    system("pause");
+    logedin = false;
+    }
+    } 
+    } while (!logedin);
+    }
+    
 
 int main(){
     signin();
+    login();
 }
