@@ -4,14 +4,46 @@ using namespace std;
 string role;
 int pemilik = 0;
 int pengguna = 0;
+string namapemilik[100];
+string telppemilik[100];
+string emailpemilik[100];
+string genderpemilik[100];
+string alamatpemilik[100];
+string namapengguna[100];
+string telppengguna[100];
+string emailpengguna[100];
+string genderpengguna[100];
+string alamatpengguna[100];
 string namepemilik[100];
 string pwpemilik[100];
 string namepengguna[100];
 string pwpengguna[100];
 bool logedin, logpemilik;
 
-void datadiri(){
-    //isi array nama, no telepon, email, alamt, jenis kelamin
+void datadiripemilik(){
+    system("cls");
+    cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
+    cout<<"|"<<setfill(' ')<<setw(30)<<"DATA DIRI"<<setw(22)<<"|\n";
+    cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
+    cout<<"Nama Lengkap : ";getline(cin>>ws,namapemilik[pemilik]);
+    cout<<"No Telepon : ";getline(cin>>ws,telppemilik[pemilik]);
+    cout<<"Email : ";getline(cin>>ws,emailpemilik[pemilik]);
+    cout<<"Alamat : ";getline(cin>>ws,alamatpemilik[pemilik]);
+    cout<<"Jenis Kelamin : ";getline(cin>>ws,genderpemilik[pemilik]);
+    cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
+}
+
+void datadiripengguna(){
+    system("cls");
+    cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
+    cout<<"|"<<setfill(' ')<<setw(30)<<"DATA DIRI"<<setw(22)<<"|\n";
+    cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
+    cout<<"Nama Lengkap : ";getline(cin>>ws,namapengguna[pengguna]);
+    cout<<"No Telepon : ";getline(cin>>ws,telppengguna[pengguna]);
+    cout<<"Email : ";getline(cin>>ws,emailpengguna[pengguna]);
+    cout<<"Alamat : ";getline(cin>>ws,alamatpengguna[pengguna]);
+    cout<<"Jenis Kelamin : ";getline(cin>>ws,genderpengguna[pengguna]);
+    cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
 }
 
 void signin(){
@@ -53,6 +85,9 @@ void signin(){
     }
     }while(yakin != "y" && yakin != "Y" && yakin != "n" && yakin != "N");
     if (yakin == "y" || yakin == "Y"){
+    cout<<"SILAHKAN ISI DATA DIRI ANDA!\n";
+    system("pause");
+    datadiripemilik();
     cout<<"AKUN BERHASIL DIBUAT....\n";
     cout<<"SILAHKAN LOGIN!\n";
     pemilik += registemp;
@@ -62,7 +97,7 @@ void signin(){
     } while (yakin=="n" || yakin =="N");
     }
     //Role Pemesan Kos
-    else if(role=="2"){
+    else {
     do{
     system("cls");
     registemp++;
@@ -81,8 +116,10 @@ void signin(){
     }
     } while(yakin != "y" && yakin != "Y" && yakin != "n" && yakin != "N");
     if (yakin == "y" || yakin == "Y"){
+    cout<<"SILAHKAN ISI DATA DIRI ANDA!\n";
+    system("pause");
+    datadiripengguna();
     cout<<"AKUN BERHASIL DIBUAT....\n";
-    //manggil fungsi array data diri
     cout<<"SILAHKAN LOGIN!\n";
     pengguna += registemp;
     system("pause");
@@ -157,11 +194,11 @@ void lihat(){
 void menupemilik(){
     string menu;
     cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
-    cout<<"|"<<setfill(' ')<<setw(28)<<"MAIN MENU"<<setw(24)<<"|\n";
+    cout<<"|"<<setfill(' ')<<setw(31)<<"MAIN MENU"<<setw(21)<<"|\n";
     cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
-    cout<<"| Pilih Menu" <<setfill(' ')<<setw(36)<<"|\n";
-    cout<<"| 1. Unggah Kos "<<setfill(' ')<<setw(36)<<"|\n";
-    cout<<"| 2. Log Out "<<setfill(' ')<<setw(36)<<"|\n";
+    cout<<"| Pilih Menu" <<setfill(' ')<<setw(41)<<"|\n";
+    cout<<"| 1. Unggah Kos "<<setfill(' ')<<setw(37)<<"|\n";
+    cout<<"| 2. Log Out "<<setfill(' ')<<setw(40)<<"|\n";
     cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
     cout<<"Masukkan Pilihan : ";getline(cin>>ws, menu);
     //manggil fungsi unggah kos & log out
@@ -173,9 +210,9 @@ void menupengguna(){
     cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
     cout<<"|"<<setfill(' ')<<setw(28)<<"MAIN MENU"<<setw(24)<<"|\n";
     cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
-    cout<<"| Pilih Menu" <<setfill(' ')<<setw(36)<<"|\n";
-    cout<<"| 1. Lihat Kos "<<setfill(' ')<<setw(36)<<"|\n";
-    cout<<"| 2. Log Out "<<setfill(' ')<<setw(36)<<"|\n";
+    cout<<"| Pilih Menu" <<setfill(' ')<<setw(41)<<"|\n";
+    cout<<"| 1. Lihat Kos "<<setfill(' ')<<setw(38)<<"|\n";
+    cout<<"| 2. Log Out "<<setfill(' ')<<setw(40)<<"|\n";
     cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
     cout<<"Masukkan Pilihan : ";getline(cin>>ws, menu);
     //manggil fungsi lihat kos & log out
@@ -183,12 +220,4 @@ void menupengguna(){
 
 int main(){
     signin();
-    login();
-    if (logpemilik){
-        menupemilik();
-    }
-    else{
-        menupengguna();
-    }
-    
 }
