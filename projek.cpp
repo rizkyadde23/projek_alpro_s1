@@ -8,8 +8,11 @@ string namepemilik[100];
 string pwpemilik[100];
 string namepengguna[100];
 string pwpengguna[100];
-bool logedin;
+bool logedin, logpemilik;
 
+void datadiri(){
+    //isi array nama, no telepon, email, alamt, jenis kelamin
+}
 
 void signin(){
     int registemp = 0;
@@ -79,6 +82,7 @@ void signin(){
     } while(yakin != "y" && yakin != "Y" && yakin != "n" && yakin != "N");
     if (yakin == "y" || yakin == "Y"){
     cout<<"AKUN BERHASIL DIBUAT....\n";
+    //manggil fungsi array data diri
     cout<<"SILAHKAN LOGIN!\n";
     pengguna += registemp;
     system("pause");
@@ -86,7 +90,7 @@ void signin(){
     }
     } while (yakin=="n" || yakin =="N");
     }
-    }
+}
 
 void login(){
     string username,password;
@@ -103,6 +107,7 @@ void login(){
     cout<<"LOGIN BERHASIL...\n";
     system("pause");
     logedin = true;
+    logpemilik = true;
     } else {
     cout<<"Username Atau Password Salah....\n";
     cout<<"Silahkan Coba Lagi!\n";
@@ -121,13 +126,69 @@ void login(){
     cout<<"Silahkan Coba Lagi!\n";
     system("pause");
     logedin = false;
+    logpemilik = false;
     }
     } 
     } while (!logedin);
     }
     
+void logout(){
+//log out
+}   
+
+void struk(){
+//bukti pembayaran, pembayaran berhasil
+}
+
+void pesan(){
+//show array pemilik, pengguna, kos, input tanggal masuk, durasi dlm bulan, show total harga
+}
+
+void unggah(){
+//for loop array
+//nama kos, harga, alamat, fasilitas ngetik manual, jenis kelamin kos
+}
+
+void lihat(){
+//for loop show array
+}
+
+
+void menupemilik(){
+    string menu;
+    cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
+    cout<<"|"<<setfill(' ')<<setw(28)<<"MAIN MENU"<<setw(24)<<"|\n";
+    cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
+    cout<<"| Pilih Menu" <<setfill(' ')<<setw(36)<<"|\n";
+    cout<<"| 1. Unggah Kos "<<setfill(' ')<<setw(36)<<"|\n";
+    cout<<"| 2. Log Out "<<setfill(' ')<<setw(36)<<"|\n";
+    cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
+    cout<<"Masukkan Pilihan : ";getline(cin>>ws, menu);
+    //manggil fungsi unggah kos & log out
+}    
+
+
+void menupengguna(){
+    string menu;
+    cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
+    cout<<"|"<<setfill(' ')<<setw(28)<<"MAIN MENU"<<setw(24)<<"|\n";
+    cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
+    cout<<"| Pilih Menu" <<setfill(' ')<<setw(36)<<"|\n";
+    cout<<"| 1. Lihat Kos "<<setfill(' ')<<setw(36)<<"|\n";
+    cout<<"| 2. Log Out "<<setfill(' ')<<setw(36)<<"|\n";
+    cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
+    cout<<"Masukkan Pilihan : ";getline(cin>>ws, menu);
+    //manggil fungsi lihat kos & log out
+}
 
 int main(){
     signin();
     login();
+    if (logpemilik){
+        menupemilik();
+    }
+    else{
+        menupengguna();
+    }
+    
 }
