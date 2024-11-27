@@ -32,9 +32,6 @@ void logout(){
             staymain = false;
             stay = false;
         }
-        
-        
-
     } while (logout != "y" &&logout != "Y" &&logout != "N" &&logout != "n"); 
 }
 
@@ -116,7 +113,6 @@ void menupemilik(){
             pause();
         }
     } while (stay);
-
 }
 
 void pesan(){
@@ -173,15 +169,14 @@ void login(){
                } else {
                 cout << "Login Gagal. Coba Lagi." << endl;
                }
-
             }
-
         } while (stay);
         pause();
     }
 }
 
 void createprofile(){
+    cout << "Profil pengguna" << endl;
     cout << "Nama Lengkap  : "; getline(cin>>ws, namaleng[user]);
     cout << "No Telepon    : "; getline(cin>>ws, notel[user]);
     cout << "Email         : "; getline(cin>>ws, email[user]);
@@ -232,12 +227,20 @@ void mainmenu(){
     {
         stay = true;
         system("cls");
-        cout << "Welcome To Mamikos" << endl;
-        cout << "1. Sign In" << endl;
-        cout << "2. Log In" << endl;
-        cout << "3. Exit Program" << endl;
-        cout << "4. View Account" << endl;
-        cout << "Pilih Menu : "; cin >>  menu;
+        cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
+        cout<<"|"<<setfill(' ')<<setw(34)<<"WELCOME TO MAMIKOS"<<setw(18)<<"|\n";
+        cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
+        cout<<"| Pilih Menu" <<setfill(' ')<<setw(41)<<"|\n";
+        cout<<"| 1. Sign In "<<setfill(' ')<<setw(40)<<"|\n";
+        cout<<"| 2. Log In "<<setfill(' ')<<setw(41)<<"|\n";
+        cout<<"| 3. Exit Program "<<setfill(' ')<<setw(35)<<"|\n";
+        cout<<"+"<<setfill('=')<<setw(52)<<"=+\n";
+        // cout << "Welcome To Mamikos" << endl;
+        // cout << "1. Sign In" << endl;
+        // cout << "2. Log In" << endl;
+        // cout << "3. Exit Program" << endl;
+        // cout << "4. View Account" << endl;
+        cout << "Pilih Menu : ";getline(cin>>ws, menu);
         if (menu < "1" && menu > "4") {
             cout << "Menu tidak tersedia. Silahkan memilih menu yang ada." << endl; 
             system("pause"); }
